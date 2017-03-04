@@ -11,9 +11,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
-from .utils import load_local_env_vars
-
-load_local_env_vars()
+import local_settings as ls
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -22,10 +20,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ['SECRET_KEY']
+SECRET_KEY = ls.SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', False)
+DEBUG = ls.DEBUG
 
 ALLOWED_HOSTS = ['*']
 
@@ -81,11 +79,11 @@ WSGI_APPLICATION = 'boqhack2017.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ['DB_NAME'],
-        'USER': os.environ['DB_USER'],
-        'PASSWORD': os.environ['DB_PASSWORD'],
-        'HOST': os.environ['DB_HOST'],
-        'PORT': os.environ['DB_PORT'],
+        'NAME': ls.DB_NAME,
+        'USER': ls.DB_USER,
+        'PASSWORD': ls.DB_PASSWORD,
+        'HOST': ls.DB_HOST,
+        'PORT': ls.DB_PORT
     }
 }
 
