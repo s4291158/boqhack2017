@@ -4,6 +4,11 @@ from persons.models import Person
 
 
 class Student(Person):
+    referrer = models.ForeignKey(
+        'self',
+        null=True,
+        blank=True
+    )
     student_number = models.CharField(
         max_length=20,
         null=True,
