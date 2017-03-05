@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
+
+from corsheaders.defaults import default_headers, default_methods
+
 import local_settings as ls
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -112,3 +115,5 @@ else:
     STATICFILES_DIRS = [
         os.path.join(BASE_DIR, 'static'),
     ]
+
+CORS_ORIGIN_ALLOW_ALL = True

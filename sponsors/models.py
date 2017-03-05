@@ -3,7 +3,8 @@ from persons.models import Person
 
 
 class Contact(Person):
-    pass
+    def __str__(self):
+        return 'contact {}'.format(self.id)
 
 
 class Sponsors(models.Model):
@@ -37,3 +38,6 @@ class Sponsors(models.Model):
         null=True,
         blank=True
     )
+
+    def __str__(self):
+        return 'sponsor {}'.format(self.id)
