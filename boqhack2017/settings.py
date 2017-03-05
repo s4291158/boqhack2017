@@ -16,16 +16,10 @@ from corsheaders.defaults import default_headers, default_methods
 
 import local_settings as ls
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = ls.SECRET_KEY
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = ls.DEBUG
 
 ALLOWED_HOSTS = ['*']
@@ -120,3 +114,8 @@ else:
     ]
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 100
+}
